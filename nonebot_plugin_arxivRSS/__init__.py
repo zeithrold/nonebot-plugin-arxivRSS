@@ -180,7 +180,7 @@ async def get_arxiv_subscribe(user_id, label, keywords):
 
 
 async def push_all_arxiv_subscribe(user_id, labels, keywords):
-    bot = get_bot()
+    bot = get_bot(global_config.qq_self_id)
     for label in labels:
         msg, takeaway = await get_arxiv_subscribe(user_id, label, keywords)
         if type(msg) is list:
